@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <script>
+    const CONFIG = {
+      upiId: "rajnishkmehta@upi",
+      payeeName: "RAJNISH KUMAR",
+
+      pageUrl: "https://rajnishkmehta.github.io/funding/upi",
+      qrImage: "https://raw.githubusercontent.com/RajnishKMehta/funding/refs/heads/main/upiqr.png",
+
+      playStoreUrl:
+        "https://play.google.com/store/apps/details?id=in.org.npci.upiapp",
+    };
+
+    CONFIG.upiUrl =
+      `upi://pay?pa=${encodeURIComponent(CONFIG.upiId)}&pn=${encodeURIComponent(CONFIG.payeeName)}`;
+  </script>
+
+  <title>Support Rajnish via UPI</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2b3529" />
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="index,follow" />
+
+  <meta
+    name="description"
+    content="Support my open source projects and development work through UPI."
+  />
+
+  <link rel="canonical" href="https://rajnishkmehta.github.io/funding/upi" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Support Rajnish via UPI" />
+  <meta
+    property="og:description"
+    content="Support my open source projects and development work through UPI."
+  />
+  <meta
+    property="og:url"
+    content="https://rajnishkmehta.github.io/funding/upi"
+  />
+  <meta
+    property="og:image"
+    content="https://raw.githubusercontent.com/RajnishKMehta/funding/refs/heads/main/upiqr.png"
+  />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Support Rajnish via UPI" />
+  <meta
+    name="twitter:description"
+    content="Support my open source projects and development work through UPI."
+  />
+  <meta
+    name="twitter:image"
+    content="https://raw.githubusercontent.com/RajnishKMehta/funding/refs/heads/main/upiqr.png"
+  />
+
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  />
+
+  <style>
+    :root {
+      --bg: #2b3529;
+      --bg-2: #1d241c;
+      --surface: #f8fef8;
+      --accent: #275e29;
+      --accent-2: #3a8a40;
+      --text: #1d241c;
+      --muted: #617060;
+      --border: #d9e0d8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: center;
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .qr-wrap {
+      display: none;
+    }
+
+    .qr {
+      display: block;
+      width: 100%;
+      max-width: 240px;
+      margin: 22px auto 6px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      background: white;
+    }
+
+    .qr-caption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 12px;
+      min-height: 50px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.96rem;
+      border: 0;
+      cursor: pointer;
+      background: var(--accent);
+      color: white;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-2);
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(39, 94, 41, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .upi-id {
+      margin-top: 18px;
+      padding: 13px;
+      border-radius: 14px;
+      background: #eef4ee;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.92rem;
+      word-break: break-word;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.15s ease;
+      position: relative;
+    }
+
+    .upi-id:hover {
+      border-color: var(--border);
+    }
+
+    .upi-id::after {
+      content: "Tap to copy";
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: Inter, system-ui, sans-serif;
+      margin-top: 4px;
+    }
+
+    .upi-id.copied::after {
+      content: "Copied!";
+      color: var(--accent);
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Desktop layout: QR moves to the right side */
+    @media (min-width: 760px) {
+      .card {
+        max-width: 760px;
+        grid-template-columns: 1fr 280px;
+        gap: 28px;
+        padding: 40px;
+        text-align: left;
+      }
+
+      .logo {
+        margin: 0 0 18px;
+      }
+
+      .left h1,
+      .left p {
+        text-align: left;
+      }
+
+      .qr-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid var(--border);
+        padding-left: 28px;
+        text-align: center;
+      }
+
+      .qr {
+        margin: 0 auto 8px;
+        max-width: 220px;
+      }
+
+      .footer {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="left">
+      <div class="logo">₹</div>
+
+      <h1 id="title">Opening UPI…</h1>
+
+      <p id="message">
+        Attempting to launch your preferred UPI application.
+      </p>
+
+      <div
+        id="upiId"
+        class="upi-id hidden"
+      >
+        rajnishkmehta@upi
+      </div>
+
+      <a
+        id="retryBtn"
+        class="btn hidden"
+        href="#"
+      >
+        Open UPI Again
+      </a>
+
+      <a
+        id="installBtn"
+        class="btn secondary hidden"
+        href="https://play.google.com/store/apps/details?id=in.org.npci.upiapp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Install BHIM UPI
+      </a>
+
+      <div class="footer">
+        Support my open source projects and development work.
+      </div>
+    </div>
+
+    <div class="qr-wrap">
+      <img
+        id="qr"
+        class="qr"
+        src="https://raw.githubusercontent.com/RajnishKMehta/funding/refs/heads/main/upiqr.png"
+        alt="UPI QR Code"
+      />
+      <div class="qr-caption">Scan with any UPI app</div>
+    </div>
+
+    <noscript>
+      <div style="margin-top:20px">
+        <p>
+          JavaScript is disabled. Tap below to open UPI manually.
+        </p>
+
+        <a
+          class="btn"
+          href="upi://pay?pa=rajnishkmehta@upi&pn=RAJNISH%20KUMAR"
+        >
+          Open UPI
+        </a>
+      </div>
+    </noscript>
+  </main>
+
+  <script>
+    const titleEl = document.getElementById("title");
+    const messageEl = document.getElementById("message");
+    const retryBtn = document.getElementById("retryBtn");
+    const installBtn = document.getElementById("installBtn");
+    const upiIdEl = document.getElementById("upiId");
+    const qrEl = document.getElementById("qr");
+
+    retryBtn.href = CONFIG.upiUrl;
+    installBtn.href = CONFIG.playStoreUrl;
+    upiIdEl.textContent = CONFIG.upiId;
+    qrEl.src = CONFIG.qrImage;
+
+    // Always show the UPI ID with copy-to-clipboard support
+    upiIdEl.classList.remove("hidden");
+
+    upiIdEl.addEventListener("click", () => {
+      navigator.clipboard?.writeText(CONFIG.upiId).then(() => {
+        upiIdEl.classList.add("copied");
+        setTimeout(() => upiIdEl.classList.remove("copied"), 1500);
+      });
+    });
+
+    let appOpened = false;
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        appOpened = true;
+      }
+    });
+
+    const isMobile =
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (!isMobile) {
+      titleEl.textContent = "Scan To Pay";
+
+      messageEl.innerHTML =
+        "Scan the QR code with any UPI app (Google Pay, PhonePe, Paytm, BHIM, etc.) or use the UPI ID below.";
+    } else {
+      setTimeout(() => {
+        window.location.href = CONFIG.upiUrl;
+      }, 100);
+
+      setTimeout(() => {
+        if (appOpened) return;
+
+        titleEl.textContent = "Could Not Open UPI";
+
+        messageEl.innerHTML =
+          "Your browser may have blocked the redirect, or no compatible UPI app is installed. Scan the QR code or copy the UPI ID below instead.";
+
+        retryBtn.classList.remove("hidden");
+        installBtn.classList.remove("hidden");
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
